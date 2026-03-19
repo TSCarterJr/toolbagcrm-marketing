@@ -214,7 +214,7 @@ export default function Home() {
               </div>
               <div className="space-y-3">
                 <div className="bg-gray-700 rounded-lg p-3 text-sm">
-                  <div className="text-gray-400 mb-1">Quote #3107</div>
+                  <div className="text-gray-400 mb-1">Quote #3107 · W. E. Coyote</div>
                   <div className="font-semibold">Giant magnet installation — roof mount</div>
                   <div className="text-orange-400 font-bold">$4,999</div>
                 </div>
