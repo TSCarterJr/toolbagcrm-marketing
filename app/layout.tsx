@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "ToolbagCRM",
     images: [
       {
-        url: "https://toolbagcrm.com/og-image.png",
+        url: "https://toolbagcrm.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "ToolbagCRM — Field Service CRM for Contractors",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ToolbagCRM — The CRM Built for Contractors",
     description: "Stop paying per seat. Grow without limits.",
-    images: ["https://toolbagcrm.com/og-image.png"],
+    images: ["https://toolbagcrm.com/og-image.jpg"],
   },
   robots: {
     index: true,
