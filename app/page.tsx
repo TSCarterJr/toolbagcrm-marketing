@@ -209,14 +209,14 @@ export default function Home() {
             <div className="bg-gray-800 rounded-2xl p-8 border border-gray-700">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-orange-500 rounded-2xl mx-auto mb-3 flex items-center justify-center text-2xl">💥</div>
-                <div className="font-bold text-lg">ACME Plumbing Co.</div>
-                <div className="text-gray-400 text-sm">jobs.acmeplumbing.com</div>
+                <div className="font-bold text-lg">ACME Home Services</div>
+                <div className="text-gray-400 text-sm">jobs.acmehomeservices.com</div>
               </div>
               <div className="space-y-3">
                 <div className="bg-gray-700 rounded-lg p-3 text-sm">
-                  <div className="text-gray-400 mb-1">Quote #1047</div>
-                  <div className="font-semibold">Water heater replacement</div>
-                  <div className="text-orange-400 font-bold">$1,850</div>
+                  <div className="text-gray-400 mb-1">Quote #3107</div>
+                  <div className="font-semibold">Giant magnet installation — roof mount</div>
+                  <div className="text-orange-400 font-bold">$4,999</div>
                 </div>
                 <div className="bg-orange-500/20 border border-orange-500/40 rounded-lg p-3 text-sm text-center">
                   <div className="text-orange-300 font-bold">✓ Approved by customer</div>
