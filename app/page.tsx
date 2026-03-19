@@ -86,7 +86,7 @@ export default function Home() {
           </p>
           <WaitlistForm />
           <p className="text-blue-300 text-sm mt-4">
-            Free forever until your first job is booked. No credit card required.
+            Free until your first job is booked. No contracts. No surprises.
           </p>
         </div>
       </section>
@@ -233,7 +233,7 @@ export default function Home() {
           </p>
           <WaitlistForm />
           <p className="text-gray-500 text-sm mt-4">
-            No spam. No credit card. Just early access.
+            No spam. No contracts. Just early access.
           </p>
         </div>
       </section>
