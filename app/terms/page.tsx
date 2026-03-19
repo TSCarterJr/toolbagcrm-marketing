@@ -28,11 +28,7 @@ export default function Terms() {
         </p>
         <h2 className="text-xl font-bold text-gray-900">Contact</h2>
         <p>
-          Questions? Email us at{" "}
-          <a href="mailto:hello@toolbagcrm.com" className="text-blue-700 underline">
-            hello@toolbagcrm.com
-          </a>
-          .
+          Questions? Contact details coming soon.
         </p>
       </div>
       <div className="mt-12">

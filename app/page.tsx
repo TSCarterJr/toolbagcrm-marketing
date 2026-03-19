@@ -222,7 +222,7 @@ export default function Home() {
       </section>
 
       {/* BOTTOM CTA */}
-      <section className="py-24 px-4 bg-gray-900 text-white">
+      <section id="waitlist" className="py-24 px-4 bg-gray-900 text-white">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-black mb-4">
             Ready to Ditch the Per-Seat Tax?

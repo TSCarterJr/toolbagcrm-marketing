@@ -56,6 +56,9 @@ export const metadata: Metadata = {
     icon: "/logo.png",
     apple: "/logo.png",
   },
+  alternates: {
+    canonical: "https://toolbagcrm.com/",
+  },
 };
 
 const jsonLd = {
