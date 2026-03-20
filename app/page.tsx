@@ -174,21 +174,15 @@ export default function Home() {
           <FadeIn delay={0.5} className="mt-20">
             <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-black text-white">
-                  $<NumberTicker value={0} className="text-white" />
-                </div>
+                <div className="text-3xl sm:text-4xl font-black text-white">$0</div>
                 <div className="text-blue-200/60 text-xs sm:text-sm mt-1">per seat, always</div>
               </div>
               <div className="text-center border-x border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">
-                  <NumberTicker value={50} className="text-white" />+
-                </div>
+                <div className="text-3xl sm:text-4xl font-black text-white">50+</div>
                 <div className="text-blue-200/60 text-xs sm:text-sm mt-1">add-on modules</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-black text-white">
-                  <NumberTicker value={12} className="text-white" />+
-                </div>
+                <div className="text-3xl sm:text-4xl font-black text-white">12+</div>
                 <div className="text-blue-200/60 text-xs sm:text-sm mt-1">trade verticals</div>
               </div>
             </div>
