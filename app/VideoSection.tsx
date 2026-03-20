@@ -94,7 +94,7 @@ export default function VideoSection() {
           CRM built for contractors who&apos;d rather be on the job than behind a desk.
         </p>
         <a
-          href="#waitlist"
+          href="/waitlist"
           className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-lg transition-colors text-base shadow-xl shadow-black/40"
         >
           Join the Waitlist
