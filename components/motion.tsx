@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { type ReactNode, useState, useEffect } from "react";
 
-// Prevents SSR from baking in opacity:0 inline styles before hydration
-function useMounted() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted;
+function useIsClient() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => setIsClient(true), []);
+  return isClient;
 }
 
 export function FadeIn({
@@ -21,17 +20,18 @@ export function FadeIn({
   delay?: number;
   direction?: "up" | "down" | "left" | "right" | "none";
 }) {
-  const mounted = useMounted();
+  const isClient = useIsClient();
 
   const directions = {
-    up: { y: 24 },
-    down: { y: -24 },
-    left: { x: 24 },
-    right: { x: -24 },
+    up: { y: 20 },
+    down: { y: -20 },
+    left: { x: 20 },
+    right: { x: -20 },
     none: {},
   };
 
-  if (!mounted) {
+  // SSR / pre-hydration: render visible (no opacity:0 baked in)
+  if (!isClient) {
     return <div className={className}>{children}</div>;
   }
 
@@ -39,8 +39,8 @@ export function FadeIn({
     <motion.div
       initial={{ opacity: 0, ...directions[direction] }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0 }}
-      transition={{ duration: 0.5, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={className}
     >
       {children}
@@ -57,9 +57,9 @@ export function StaggerContainer({
   className?: string;
   staggerDelay?: number;
 }) {
-  const mounted = useMounted();
+  const isClient = useIsClient();
 
-  if (!mounted) {
+  if (!isClient) {
     return <div className={className}>{children}</div>;
   }
 
@@ -67,7 +67,7 @@ export function StaggerContainer({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
@@ -86,16 +86,16 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
-  const mounted = useMounted();
+  const isClient = useIsClient();
 
-  if (!mounted) {
+  if (!isClient) {
     return <div className={className}>{children}</div>;
   }
 
   return (
     <motion.div
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 16 },
         visible: {
           opacity: 1,
           y: 0,
