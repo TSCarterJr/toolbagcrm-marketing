@@ -144,9 +144,6 @@ export default function Home() {
         }}
       />
 
-      {/* VIDEO SECTION */}
-      <VideoSection />
-
       {/* PROBLEM / SOLUTION */}
       <section className="py-24 sm:py-32 px-4">
         <div className="max-w-5xl mx-auto">
@@ -227,6 +224,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* VIDEO SECTION */}
+      <VideoSection />
 
       {/* FEATURES */}
       <section id="features" className="py-24 sm:py-32 px-4 bg-gray-50/80">
