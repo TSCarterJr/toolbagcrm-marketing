@@ -20,6 +20,7 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { Marquee } from "@/components/ui/marquee";
 import { FadeIn, StaggerContainer, StaggerItem } from "@/components/motion";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
 
 const features = [
   {
@@ -121,74 +122,27 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#1d4ed8] via-[#1e3a8a] to-gray-900 text-white">
-        {/* Grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px]" />
-        {/* Radial glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#f97316]/10 rounded-full blur-[120px]" />
-
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-24 pb-28 sm:pt-32 sm:pb-36">
-          <FadeIn className="text-center">
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-sm font-medium px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm">
-              <AnimatedShinyText className="text-white/90 text-sm" shimmerWidth={80}>
-                Now accepting early signups
-              </AnimatedShinyText>
-              <ChevronRight className="w-3.5 h-3.5 text-white/60" />
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.1} className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-[1.08] tracking-tight mb-6">
-              The CRM that doesn&apos;t
-              <br />
-              <span className="text-[#f97316]">punish you for growing</span>
-            </h1>
-          </FadeIn>
-
-          <FadeIn delay={0.2} className="text-center">
-            <p className="text-lg sm:text-xl text-blue-100/80 mb-10 max-w-2xl mx-auto leading-relaxed font-normal">
-              Schedule jobs. Send quotes. Get paid. Add your whole crew without
-              watching the bill go up. Built for contractors, not enterprises.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.3} className="flex flex-col items-center gap-4">
-            <Link href="/waitlist">
-              <ShimmerButton
-                background="rgba(249, 115, 22, 1)"
-                shimmerColor="rgba(255, 255, 255, 0.4)"
-                shimmerSize="0.08em"
-                borderRadius="9999px"
-                className="px-8 py-4 text-base font-bold shadow-xl shadow-orange-500/25"
-              >
-                Join the Waitlist
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </ShimmerButton>
-            </Link>
-            <p className="text-blue-200/60 text-sm">
-              Free until your first job is booked. No contracts.
-            </p>
-          </FadeIn>
-
-          {/* Stats */}
-          <FadeIn delay={0.5} className="mt-20">
-            <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-black text-white">$0</div>
-                <div className="text-blue-200/60 text-xs sm:text-sm mt-1">per seat, always</div>
-              </div>
-              <div className="text-center border-x border-white/10">
-                <div className="text-3xl sm:text-4xl font-black text-white">50+</div>
-                <div className="text-blue-200/60 text-xs sm:text-sm mt-1">add-on modules</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl font-black text-white">12+</div>
-                <div className="text-blue-200/60 text-xs sm:text-sm mt-1">trade verticals</div>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <AnimatedShaderHero
+        trustBadge={{
+          text: "Now accepting early signups",
+          icons: ["✨"]
+        }}
+        headline={{
+          line1: "The CRM that doesn't",
+          line2: "punish you for growing"
+        }}
+        subtitle="Schedule jobs. Send quotes. Get paid. Add your whole crew without watching the bill go up. Built for contractors, not enterprises."
+        buttons={{
+          primary: {
+            text: "Join the Waitlist",
+            href: "/waitlist"
+          },
+          secondary: {
+            text: "Explore Features",
+            href: "#features"
+          }
+        }}
+      />
 
       {/* VIDEO SECTION */}
       <VideoSection />
