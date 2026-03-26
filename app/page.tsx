@@ -522,7 +522,7 @@ export default function Home() {
       <footer className="bg-gray-950 border-t border-gray-800/50 text-gray-500 py-8 px-4">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="ToolbagCRM" width={24} height={24} />
+            <Image src="/logo-icon.png" alt="ToolbagCRM" width={24} height={24} />
             <span className="font-bold tracking-tight">
               <span className="text-[#1d4ed8]">Toolbag</span>
               <span className="text-[#f97316]">CRM</span>
