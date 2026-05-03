@@ -102,74 +102,89 @@ const industries = [
   "Personal Training",
 ];
 
-type CompareValue = boolean | "partial";
+type CompareValue = boolean | "partial" | "coming-soon";
 
 const comparisons: { feature: string; sub: string; toolbag: CompareValue; jobber: CompareValue; hcp: CompareValue; st: CompareValue }[] = [
+  // ── Where we win ────────────────────────────────────────────────────────────
   {
     feature: "Price stays flat as you hire",
     sub: "No cost increase when adding team members",
-    toolbag: true,
-    jobber: false,
-    hcp: false,
-    st: false,
+    toolbag: true, jobber: false, hcp: false, st: false,
   },
   {
     feature: "Unlimited users included",
     sub: "No per-seat charges, ever",
-    toolbag: true,
-    jobber: false,
-    hcp: false,
-    st: false,
+    toolbag: true, jobber: false, hcp: false, st: false,
+  },
+  {
+    feature: "All core features on every plan",
+    sub: "No 'upgrade to unlock' walls for core tools",
+    toolbag: true, jobber: false, hcp: false, st: false,
+  },
+  {
+    feature: "AI features — no monthly unlock fee",
+    sub: "Access every AI tool; pay only for what you use",
+    toolbag: true, jobber: "partial", hcp: "partial", st: "partial",
   },
   {
     feature: "Full custom branding",
-    sub: "Your logo, colors, and identity",
-    toolbag: true,
-    jobber: "partial",
-    hcp: "partial",
-    st: "partial",
+    sub: "Your logo, colors, and identity throughout",
+    toolbag: true, jobber: "partial", hcp: "partial", st: "partial",
   },
   {
     feature: "Your own domain",
     sub: "e.g. portal.yourbusiness.com",
-    toolbag: true,
-    jobber: false,
-    hcp: false,
-    st: false,
-  },
-  {
-    feature: "Free until first booking",
-    sub: "We don't earn until you do",
-    toolbag: true,
-    jobber: false,
-    hcp: false,
-    st: false,
-  },
-  {
-    feature: "Any home service trade",
-    sub: "Not locked to one industry",
-    toolbag: true,
-    jobber: "partial",
-    hcp: "partial",
-    st: "partial",
+    toolbag: true, jobber: false, hcp: false, st: false,
   },
   {
     feature: "Customers see your brand",
     sub: "Not the software vendor's",
-    toolbag: true,
-    jobber: "partial",
-    hcp: "partial",
-    st: false,
+    toolbag: true, jobber: "partial", hcp: "partial", st: false,
+  },
+  {
+    feature: "Free until first booking",
+    sub: "We don't earn until you do",
+    toolbag: true, jobber: false, hcp: false, st: false,
+  },
+  {
+    feature: "Works for any service trade",
+    sub: "From plumbing to dog grooming",
+    toolbag: true, jobber: "partial", hcp: "partial", st: "partial",
+  },
+  // ── Where they currently win ─────────────────────────────────────────────────
+  {
+    feature: "Native mobile app (iOS & Android)",
+    sub: "Includes GPS tracking",
+    toolbag: "coming-soon", jobber: true, hcp: true, st: true,
+  },
+  {
+    feature: "QuickBooks integration",
+    sub: "",
+    toolbag: "coming-soon", jobber: true, hcp: true, st: "partial",
+  },
+  {
+    feature: "Advanced reporting & analytics",
+    sub: "",
+    toolbag: "partial", jobber: "partial", hcp: "partial", st: true,
   },
 ];
 
-function CompareCell({ value }: { value: boolean | "partial" }) {
+function CompareCell({ value }: { value: CompareValue }) {
   if (value === true) {
     return (
       <div className="flex justify-center">
         <div className="w-6 h-6 rounded-full bg-emerald-500/15 flex items-center justify-center">
           <Check className="w-3.5 h-3.5 text-emerald-400" />
         </div>
+      </div>
+    );
+  }
+  if (value === "coming-soon") {
+    return (
+      <div className="flex justify-center">
+        <span className="text-[9px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full px-2 py-0.5 whitespace-nowrap uppercase tracking-wide">
+          Soon
+        </span>
       </div>
     );
   }
@@ -721,13 +736,43 @@ export default function Home() {
               </table>
             </div>
 
-            <p className="text-gray-600 text-xs text-center mt-4">
-              Based on publicly available information as of May 2026.{" "}
-              &ldquo;Partial&rdquo; indicates limited or add-on functionality. Sources:{" "}
-              <a href="https://www.getjobber.com/features/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">Jobber</a>,{" "}
-              <a href="https://www.housecallpro.com/features/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">HouseCall Pro</a>,{" "}
-              <a href="https://www.servicetitan.com/features" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">ServiceTitan</a>.
-            </p>
+            <div className="mt-6 space-y-3">
+              {/* Legend */}
+              <div className="flex flex-wrap justify-center gap-5 text-xs text-gray-500">
+                <span className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded-full bg-emerald-500/15 flex items-center justify-center shrink-0">
+                    <Check className="w-2.5 h-2.5 text-emerald-400" />
+                  </div>
+                  Included
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded-full bg-yellow-500/10 flex items-center justify-center shrink-0">
+                    <Minus className="w-2.5 h-2.5 text-yellow-500/70" />
+                  </div>
+                  Limited or add-on
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <div className="w-4 h-4 rounded-full bg-gray-800 flex items-center justify-center shrink-0">
+                    <X className="w-2 h-2 text-gray-600" />
+                  </div>
+                  Not available
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full px-1.5 py-0.5 uppercase tracking-wide">Soon</span>
+                  On our roadmap
+                </span>
+              </div>
+
+              {/* Notes */}
+              <p className="text-gray-600 text-xs text-center leading-relaxed max-w-2xl mx-auto">
+                Jobber locks time tracking, two-way SMS, and job costing to their $149+/mo plan; AI Receptionist is a $99/mo add-on.
+                HouseCall Pro locks GPS tracking and QuickBooks to their $149+/mo plan; CSR AI is a separate paid add-on.
+                Based on publicly available information as of May 2026. Sources:{" "}
+                <a href="https://www.getjobber.com/features/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">Jobber</a>,{" "}
+                <a href="https://www.housecallpro.com/features/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">HouseCall Pro</a>,{" "}
+                <a href="https://www.servicetitan.com/features" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">ServiceTitan</a>.
+              </p>
+            </div>
           </FadeIn>
         </div>
       </section>
