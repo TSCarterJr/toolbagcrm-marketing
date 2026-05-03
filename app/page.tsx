@@ -106,8 +106,8 @@ type CompareValue = boolean | "partial";
 
 const comparisons: { feature: string; sub: string; toolbag: CompareValue; jobber: CompareValue; hcp: CompareValue; st: CompareValue }[] = [
   {
-    feature: "Flat monthly pricing",
-    sub: "One plan, no surprises",
+    feature: "Price stays flat as you hire",
+    sub: "No cost increase when adding team members",
     toolbag: true,
     jobber: false,
     hcp: false,
@@ -155,10 +155,10 @@ const comparisons: { feature: string; sub: string; toolbag: CompareValue; jobber
   },
   {
     feature: "Customers see your brand",
-    sub: "Not ours",
+    sub: "Not the software vendor's",
     toolbag: true,
-    jobber: false,
-    hcp: false,
+    jobber: "partial",
+    hcp: "partial",
     st: false,
   },
 ];
@@ -722,7 +722,11 @@ export default function Home() {
             </div>
 
             <p className="text-gray-600 text-xs text-center mt-4">
-              Competitor features based on publicly available information as of 2025. &ldquo;Partial&rdquo; indicates limited or add-on functionality.
+              Based on publicly available information as of May 2026.{" "}
+              &ldquo;Partial&rdquo; indicates limited or add-on functionality. Sources:{" "}
+              <a href="https://www.getjobber.com/pricing/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">Jobber</a>,{" "}
+              <a href="https://www.housecallpro.com/pricing/" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">HouseCall Pro</a>,{" "}
+              <a href="https://www.servicetitan.com/pricing" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-400 transition-colors">ServiceTitan</a>.
             </p>
           </FadeIn>
         </div>
